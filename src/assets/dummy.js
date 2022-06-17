@@ -140,5 +140,12 @@ export const PAINT_CARDS = [
         altText: "title3",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+    },
+    {
+        key: 21,
+        src: MEDIA_DATA.ACUARELA_NINE,
+        altText: "title3",
+        caption:
+            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     }
 ];

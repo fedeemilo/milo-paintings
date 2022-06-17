@@ -4,9 +4,30 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&family=Noto+Sans:ital,wght@0,100;0,200;0,400;0,800;1,100;1,200;1,700&display=swap");
 
+html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
+}
+
+body {
     font-family: "Montserrat", sans-serif;
     background-color: #eaebed;
+    overflow: hidden;
+}
+
+.picker__container {
+    position: absolute;
+    width: 14vw;
+    padding: 0.7rem 1.7rem;
+    z-index: 2;
+    position: fixed;
+    left: 90%;
+    transform: translateX(-50%);
+    top: 3.8rem;
+    display: flex;
+    gap: 0.8rem;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(90px);
 }

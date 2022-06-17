@@ -1,0 +1,9 @@
+.carousel-container {
+    margin: 0 auto;
+    width: 800px;
+    height: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 10px 11px 31px 12px rgba(91, 130, 145, 1);
+    min-height: 100%;
+}

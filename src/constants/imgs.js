@@ -18,6 +18,7 @@ import acuarelaFive from "../assets/milo_acuarela5.jpg";
 import acuarelaSix from "../assets/milo_acuarela6.jpg";
 import acuarelaSeven from "../assets/milo_acuarela7.jpg";
 import acuarelaEight from "../assets/milo_acuarela8.jpg";
+import acuarelaNine from "../assets/milo_acuarela9.jpg";
 
 export const MEDIA_DATA = {
     ACUARELA_ONE: acuarelaOne,
@@ -28,6 +29,7 @@ export const MEDIA_DATA = {
     ACUARELA_SIX: acuarelaSix,
     ACUARELA_SEVEN: acuarelaSeven,
     ACUARELA_EIGHT: acuarelaEight,
+    ACUARELA_NINE: acuarelaNine,
     PAINT_ONE: paintOne,
     PAINT_TWO: paintTwo,
     PAINT_THREE: paintThree,
