@@ -1,10 +1,13 @@
-import Home from "./pages/Home";
+import { useMemo } from "react";
+import Router from "./Router";
 
 const App = () => {
     return (
         <>
             <div className="container">
-                <Home />
+                {useMemo(() => {
+                    return <Router />;
+                }, [])}
             </div>
         </>
     );

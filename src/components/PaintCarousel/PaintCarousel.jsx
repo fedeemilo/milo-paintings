@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Carousel, CarouselControl, CarouselItem } from "reactstrap";
 import { PAINT_CARDS } from "../../assets/dummy";
 import { useStateContext } from "../../context/ContextProvider";
@@ -7,6 +8,8 @@ import "./paint-carousel.css";
 const PaintCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
+
+    const navigate = useNavigate();
 
     const { frameColor, frameWidth } = useStateContext();
     const itemsLength = PAINT_CARDS.length - 1;
@@ -23,6 +26,16 @@ const PaintCarousel = () => {
         setActiveIndex(nextIndex);
     };
 
+    const navigateToPainting = e => {
+        const { currentSrc, alt, width } = e.target;
+
+        console.log(e);
+
+        navigate(`/milo-painting/${alt}`, {
+            state: { currentSrc, width }
+        });
+    };
+
     const carouselItemData = PAINT_CARDS.map(item => {
         return (
             <CarouselItem
@@ -31,13 +44,10 @@ const PaintCarousel = () => {
                 onExiting={() => setAnimating(true)}
             >
                 <img
+                    className="carousel-image"
                     alt={item.altText}
                     src={item.src}
-                    style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "30rem"
-                    }}
+                    onClick={navigateToPainting}
                 />
             </CarouselItem>
         );

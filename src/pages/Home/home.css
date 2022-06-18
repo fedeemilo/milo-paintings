@@ -1,0 +1,10 @@
+.home__carousel-container {
+    width: 60vw;
+    height: 100%;
+}
+
+@media screen and (max-width: 1450px) {
+    .home__carousel-container {
+        width: 80vw;
+    }
+}

@@ -16,18 +16,3 @@ body {
     background-color: #eaebed;
     overflow: hidden;
 }
-
-.picker__container {
-    position: absolute;
-    width: 14vw;
-    padding: 0.7rem 1.7rem;
-    z-index: 2;
-    position: fixed;
-    left: 90%;
-    transform: translateX(-50%);
-    top: 3.8rem;
-    display: flex;
-    gap: 0.8rem;
-    border-radius: 1.5rem;
-    backdrop-filter: blur(90px);
-}

@@ -25,126 +25,126 @@ export const PAINT_CARDS = [
     {
         key: 4,
         src: MEDIA_DATA.PAINT_THREE,
-        altText: "title3",
+        altText: "title4",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 5,
         src: MEDIA_DATA.PAINT_FOUR,
-        altText: "title3",
+        altText: "title5",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 6,
         src: MEDIA_DATA.PAINT_FIVE,
-        altText: "title3",
+        altText: "title6",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 7,
         src: MEDIA_DATA.PAINT_SIX,
-        altText: "title3",
+        altText: "title7",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 8,
         src: MEDIA_DATA.ACUARELA_TWO,
-        altText: "title1",
+        altText: "title8",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 9,
         src: MEDIA_DATA.ACUARELA_THREE,
-        altText: "title1",
+        altText: "title9",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 10,
         src: MEDIA_DATA.ACUARELA_FOUR,
-        altText: "title1",
+        altText: "title10",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 11,
         src: MEDIA_DATA.PAINT_SEVEN,
-        altText: "title3",
+        altText: "title11",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 12,
         src: MEDIA_DATA.PAINT_EIGHT,
-        altText: "title3",
+        altText: "title12",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 13,
         src: MEDIA_DATA.PAINT_NINE,
-        altText: "title3",
+        altText: "title13",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 14,
         src: MEDIA_DATA.PAINT_TEN,
-        altText: "title3",
+        altText: "title14",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 15,
         src: MEDIA_DATA.PAINT_ELEVEN,
-        altText: "title3",
+        altText: "title15",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 16,
         src: MEDIA_DATA.PAINT_TEWLVE,
-        altText: "title3",
+        altText: "title16",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 17,
         src: MEDIA_DATA.ACUARELA_FIVE,
-        altText: "title3",
+        altText: "title17",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 18,
         src: MEDIA_DATA.ACUARELA_SIX,
-        altText: "title3",
+        altText: "title18",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 19,
         src: MEDIA_DATA.ACUARELA_SEVEN,
-        altText: "title3",
+        altText: "title19",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 20,
         src: MEDIA_DATA.ACUARELA_EIGHT,
-        altText: "title3",
+        altText: "title20",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     },
     {
         key: 21,
         src: MEDIA_DATA.ACUARELA_NINE,
-        altText: "title3",
+        altText: "title21",
         caption:
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     }
