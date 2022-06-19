@@ -15,4 +15,6 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: #eaebed;
     overflow: hidden;
+    background-repeat: repeat;
+    transition: "400ms";
 }

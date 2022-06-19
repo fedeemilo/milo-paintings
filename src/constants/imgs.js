@@ -19,6 +19,9 @@ import acuarelaSix from "../assets/milo_acuarela6.jpg";
 import acuarelaSeven from "../assets/milo_acuarela7.jpg";
 import acuarelaEight from "../assets/milo_acuarela8.jpg";
 import acuarelaNine from "../assets/milo_acuarela9.jpg";
+import trianglesPattern from "../assets/triangles_pattern.png";
+import mosaicPattern from "../assets/mosaic_pattern.webp";
+import pipesPattern from "../assets/pipes_pattern.png";
 
 export const MEDIA_DATA = {
     ACUARELA_ONE: acuarelaOne,
@@ -41,5 +44,8 @@ export const MEDIA_DATA = {
     PAINT_NINE: paintNine,
     PAINT_TEN: paintTen,
     PAINT_ELEVEN: paintEleven,
-    PAINT_TEWLVE: paintTwelve
+    PAINT_TEWLVE: paintTwelve,
+    TRIANGLES_PATTERN: trianglesPattern,
+    MOSAIC_PATTERN: mosaicPattern,
+    PIPES_PATTERN: pipesPattern
 };

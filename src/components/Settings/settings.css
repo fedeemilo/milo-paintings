@@ -10,7 +10,25 @@
     display: flex;
     gap: 0.8rem;
     border-radius: 1.5rem;
-    backdrop-filter: blur(90px);
+    backdrop-filter: blur(30px);
+}
+
+.pattern-box {
+    background: transparent;
+    max-width: 4.5rem;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.pattern-box img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 @media screen and (max-width: 1450px) {

@@ -149,3 +149,21 @@ export const PAINT_CARDS = [
             "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
     }
 ];
+
+export const BACKGROUND_PATTERNS = [
+    {
+        key: 1,
+        name: "Triángulos",
+        pattern: MEDIA_DATA.TRIANGLES_PATTERN
+    },
+    {
+        key: 2,
+        name: "Mosaicos",
+        pattern: MEDIA_DATA.MOSAIC_PATTERN
+    },
+    {
+        key: 3,
+        name: "Tubos",
+        pattern: MEDIA_DATA.PIPES_PATTERN
+    }
+];

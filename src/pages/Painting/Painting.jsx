@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { Container, Card, CardBody, CardImg, CardTitle } from "reactstrap";
+import { useParams, useLocation, Link } from "react-router-dom";
+import { Container, Card, CardImg } from "reactstrap";
 import { Settings } from "../../components";
 import { useStateContext } from "../../context/ContextProvider";
 
@@ -12,13 +11,16 @@ const Painting = () => {
     const imgSrc = location?.state?.currentSrc;
     const imgWidth = location?.state?.width;
 
-    useEffect(() => {
-        console.log(+imgWidth + +imgPlusWidth);
-    }, [imgPlusWidth]);
-
     return (
         <div>
             <Settings isHome={false} />
+            <Link
+                to="/"
+                className=" d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mb-2 mt-3"
+                style={{ color: frameColor }}
+            >
+                Milo Pinturas
+            </Link>
             <Container
                 className="mt-4"
                 style={{
