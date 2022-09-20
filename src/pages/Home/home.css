@@ -5,6 +5,8 @@
 
 @media screen and (max-width: 1450px) {
     .home__carousel-container {
-        width: 80vw;
+        width: 90vw;
+        border: none !important;
+        background: transparent !important;
     }
 }
