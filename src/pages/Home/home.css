@@ -9,4 +9,8 @@
         border: none !important;
         background: transparent !important;
     }
+
+    .milo-logo {
+        margin-top: 2rem !important;
+    }
 }

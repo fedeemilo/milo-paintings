@@ -2,7 +2,7 @@
     margin: 0 auto;
     width: 1200px;
     height: 100%;
-    padding: 30px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 10px 11px 31px 12px rgba(91, 130, 145, 1);
     min-height: 100%;
@@ -15,10 +15,11 @@
     cursor: pointer;
 }
 
+
 .carousel-control-prev-icon,
-  .carousel-control-next-icon{
-    filter: invert(1);
-  }
+.carousel-control-next-icon {
+    filter: invert(5);
+}
 
 @media screen and (max-width: 800px) {
     .carousel-container {
@@ -29,9 +30,12 @@
     }
 
     .carousel-image {
-      width: 100%;
-      height: 90vh;
-      object-fit: scale-down;
-      cursor: pointer;
-  }
+        position: relative;
+        bottom: -4rem;
+        object-fit: scale-down;
+    }
+
+    .carousel-text {
+        margin: 1rem auto;
+    }
 }

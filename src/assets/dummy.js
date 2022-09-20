@@ -41,35 +41,35 @@ export const PAINT_CARDS = [
         src: MEDIA_DATA.PAINT_FIVE,
         altText: "title6",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 7,
         src: MEDIA_DATA.PAINT_SIX,
         altText: "title7",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 8,
         src: MEDIA_DATA.ACUARELA_TWO,
         altText: "title8",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 9,
         src: MEDIA_DATA.ACUARELA_THREE,
         altText: "title9",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 10,
         src: MEDIA_DATA.ACUARELA_FOUR,
         altText: "title10",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 11,
@@ -83,35 +83,35 @@ export const PAINT_CARDS = [
         src: MEDIA_DATA.PAINT_EIGHT,
         altText: "title12",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 13,
         src: MEDIA_DATA.PAINT_NINE,
         altText: "title13",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 14,
         src: MEDIA_DATA.PAINT_TEN,
         altText: "title14",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 15,
         src: MEDIA_DATA.PAINT_ELEVEN,
         altText: "title15",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 16,
         src: MEDIA_DATA.PAINT_TEWLVE,
         altText: "title16",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 17,
@@ -146,7 +146,7 @@ export const PAINT_CARDS = [
         src: MEDIA_DATA.ACUARELA_NINE,
         altText: "title21",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     }
 ];
 

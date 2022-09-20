@@ -13,7 +13,7 @@ const Home = () => {
             <Container>
                 <Link
                     to="/"
-                    className=" d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mb-2 mt-3"
+                    className="milo-logo d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mb-2 mt-3"
                     style={{ color: frameColor }}
                 >
                     Milo Pinturas

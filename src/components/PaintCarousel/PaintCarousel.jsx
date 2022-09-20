@@ -47,7 +47,7 @@ const PaintCarousel = () => {
                     src={item.src}
                     onClick={navigateToPainting}
                 />
-                <div style={{ marginLeft: "3rem", marginTop: "1rem" }}>
+                <div className="carousel-text" style={{ marginLeft: "3rem", marginTop: "1rem" }}>
                     <p>{item.altText}</p>
                     <small>{item.caption}</small>
                 </div>
