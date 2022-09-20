@@ -29,8 +29,6 @@ const PaintCarousel = () => {
     const navigateToPainting = e => {
         const { currentSrc, alt, width } = e.target;
 
-        console.log(e);
-
         navigate(`/milo-painting/${alt}`, {
             state: { currentSrc, width }
         });
@@ -49,6 +47,10 @@ const PaintCarousel = () => {
                     src={item.src}
                     onClick={navigateToPainting}
                 />
+                <div style={{ marginLeft: "3rem", marginTop: "1rem" }}>
+                    <p>{item.altText}</p>
+                    <small>{item.caption}</small>
+                </div>
             </CarouselItem>
         );
     });
@@ -58,19 +60,24 @@ const PaintCarousel = () => {
             className="carousel-container"
             style={{ border: `${frameWidth}px solid ${frameColor}` }}
         >
-            <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+            <Carousel
+                activeIndex={activeIndex}
+                next={next}
+                previous={previous}
+                interval={null}
+            >
                 {carouselItemData}
-                <CarouselControl
-                    direction="prev"
-                    directionText="Previous"
-                    onClickHandler={previous}
-                />
-                <CarouselControl
-                    direction="next"
-                    directionText="Next"
-                    onClickHandler={next}
-                />
             </Carousel>
+            <CarouselControl
+                direction="prev"
+                directionText="Previous"
+                onClickHandler={previous}
+            />
+            <CarouselControl
+                direction="next"
+                directionText="Next"
+                onClickHandler={next}
+            />
         </div>
     );
 };

@@ -4,37 +4,37 @@ export const PAINT_CARDS = [
     {
         key: 1,
         src: MEDIA_DATA.ACUARELA_ONE,
-        altText: "title1",
+        altText: "Santillana del Mar",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 2,
         src: MEDIA_DATA.PAINT_ONE,
-        altText: "title2",
+        altText: "Paso del Cordoba",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 3,
         src: MEDIA_DATA.PAINT_TWO,
-        altText: "title3",
+        altText: "Gandalf",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 4,
         src: MEDIA_DATA.PAINT_THREE,
-        altText: "title4",
+        altText: "El Viaje",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 5,
         src: MEDIA_DATA.PAINT_FOUR,
-        altText: "title5",
+        altText: "Siervos en Otoño",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 6,
@@ -74,9 +74,9 @@ export const PAINT_CARDS = [
     {
         key: 11,
         src: MEDIA_DATA.PAINT_SEVEN,
-        altText: "title11",
+        altText: "Bodegon",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 12,
@@ -116,30 +116,30 @@ export const PAINT_CARDS = [
     {
         key: 17,
         src: MEDIA_DATA.ACUARELA_FIVE,
-        altText: "title17",
+        altText: "Bodegon",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Oleo sobre tela"
     },
     {
         key: 18,
         src: MEDIA_DATA.ACUARELA_SIX,
-        altText: "title18",
+        altText: "Flores",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 19,
         src: MEDIA_DATA.ACUARELA_SEVEN,
-        altText: "title19",
+        altText: "Marina 1",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 20,
         src: MEDIA_DATA.ACUARELA_EIGHT,
-        altText: "title20",
+        altText: "Marina 2",
         caption:
-            "Laudantium alias facere vel inventore consectetur recusandae mollitia numquam ipsam, neque adipisci obcaecati minima eaque."
+            "Acuarela sobre papel"
     },
     {
         key: 21,
