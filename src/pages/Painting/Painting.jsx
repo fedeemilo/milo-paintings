@@ -1,34 +1,44 @@
-import { useParams, useLocation, Link } from "react-router-dom";
-import { Container, Card, CardImg } from "reactstrap";
-import { Settings } from "../../components";
-import { useStateContext } from "../../context/ContextProvider";
+import { useParams, useLocation } from 'react-router-dom';
+import {
+    Container,
+    Card,
+    CardImg,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    CardFooter
+} from 'reactstrap';
+import { PAINT_CARDS } from '../../assets/dummy';
+import InfoFooter from '../../components/InfoFooter/InfoFooter';
+import NavBar from '../../components/NavBar/NavBar';
+import { useStateContext } from '../../context/ContextProvider';
 
 const Painting = () => {
-    const { frameWidth, frameColor, imgPlusWidth } = useStateContext();
+    const { frameWidth, frameColor } = useStateContext();
     const { title } = useParams();
     const location = useLocation();
 
-    const imgSrc = location?.state?.currentSrc;
-    const imgWidth = location?.state?.width;
+    const findCard = PAINT_CARDS.filter(card =>
+        title.includes(card.altText)
+    )[0];
+
+    const imgSrc = location?.state?.currentSrc || findCard.src;
+    const imgPrice = location?.state?.price || findCard.price;
+    const imgCaption = location?.state?.caption || findCard.caption;
 
     return (
-        <div>
-            <Settings isHome={false} />
-            <Link
-                to="/"
-                className=" d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mb-2 mt-3"
-                style={{ color: frameColor }}
-            >
-                Milo Pinturas
-            </Link>
+        <div
+            className="d-flex flex-column justify-center align-items-center"
+            style={{ height: '90vh' }}
+        >
+            <NavBar frameColor={frameColor} />
             <Container
-                className="mt-4"
+                className="mt-4 d-flex justify-center align-center align-items-center align-self-center"
                 style={{
-                    width: +imgWidth + +imgPlusWidth * 3.5,
-                    transition: "300ms"
+                    transition: '300ms'
                 }}
             >
-                <Card>
+                <Card style={{ width: '38rem' }}>
                     <CardImg
                         alt={title}
                         src={imgSrc}
@@ -37,8 +47,18 @@ const Painting = () => {
                             border: `${frameWidth}px solid ${frameColor}`
                         }}
                     />
+                    <CardBody>
+                        <CardTitle tag="h5">{title}</CardTitle>
+                        <CardSubtitle className="mb-2 text-muted" tag="h6">
+                            {imgCaption}
+                        </CardSubtitle>
+                    </CardBody>
+                    <CardFooter className="text-end text-bold">
+                        U$S {imgPrice}
+                    </CardFooter>
                 </Card>
             </Container>
+            <InfoFooter />
         </div>
     );
 };

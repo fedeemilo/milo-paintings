@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Carousel, CarouselControl, CarouselItem } from "reactstrap";
-import { PAINT_CARDS } from "../../assets/dummy";
-import { useStateContext } from "../../context/ContextProvider";
-import "./paint-carousel.css";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Carousel, CarouselControl, CarouselItem } from 'reactstrap';
+import { PAINT_CARDS } from '../../assets/dummy';
+import { useStateContext } from '../../context/ContextProvider';
+import './paint-carousel.css';
 
 const PaintCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -26,11 +26,16 @@ const PaintCarousel = () => {
         setActiveIndex(nextIndex);
     };
 
-    const navigateToPainting = e => {
+    const navigateToPainting = (e, item) => {
         const { currentSrc, alt, width } = e.target;
 
         navigate(`/milo-painting/${alt}`, {
-            state: { currentSrc, width }
+            state: {
+                currentSrc,
+                width,
+                price: item.price,
+                caption: item.caption
+            }
         });
     };
 
@@ -45,11 +50,15 @@ const PaintCarousel = () => {
                     className="carousel-image"
                     alt={item.altText}
                     src={item.src}
-                    onClick={navigateToPainting}
+                    onClick={e => navigateToPainting(e, item)}
                 />
-                <div className="carousel-text" style={{ marginLeft: "3rem", marginTop: "1rem" }}>
+                <div
+                    className="carousel-text"
+                    style={{ marginLeft: '3rem', marginTop: '1rem' }}
+                >
                     <p>{item.altText}</p>
                     <small>{item.caption}</small>
+                    <p className="float-end fw-bold">U$S {item.price}</p>
                 </div>
             </CarouselItem>
         );
@@ -67,17 +76,17 @@ const PaintCarousel = () => {
                 interval={null}
             >
                 {carouselItemData}
+                <CarouselControl
+                    direction="prev"
+                    directionText="Previous"
+                    onClickHandler={previous}
+                />
+                <CarouselControl
+                    direction="next"
+                    directionText="Next"
+                    onClickHandler={next}
+                />
             </Carousel>
-            <CarouselControl
-                direction="prev"
-                directionText="Previous"
-                onClickHandler={previous}
-            />
-            <CarouselControl
-                direction="next"
-                directionText="Next"
-                onClickHandler={next}
-            />
         </div>
     );
 };

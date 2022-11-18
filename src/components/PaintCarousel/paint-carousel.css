@@ -15,7 +15,6 @@
     cursor: pointer;
 }
 
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(5);
@@ -23,6 +22,7 @@
 
 @media screen and (max-width: 800px) {
     .carousel-container {
+        margin-top: -4.7rem;
         width: 100% !important;
         padding: 0;
         box-shadow: none;
@@ -31,11 +31,19 @@
 
     .carousel-image {
         position: relative;
-        bottom: -4rem;
+        bottom: -2rem;
         object-fit: scale-down;
     }
 
     .carousel-text {
-        margin: 1rem auto;
+        position: relative;
+        bottom: 5.5rem;
+        right: 2.7rem;
+    }
+
+    .carousel-price {
+        position: relative;
+        right: -1rem;
+        bottom: 5.5rem;
     }
 }

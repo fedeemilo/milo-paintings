@@ -1,4 +1,4 @@
-import { Container, Col } from "reactstrap";
+import { Container, Col, Badge } from "reactstrap";
 import { useStateContext } from "../../context/ContextProvider";
 import { Settings, PaintCarousel } from "../../components";
 import "./home.css";
@@ -16,7 +16,7 @@ const Home = () => {
                     className="milo-logo d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mb-2 mt-3"
                     style={{ color: frameColor }}
                 >
-                    Milo Pinturas
+                    <Badge color="dark">M</Badge>ilo Pinturas
                 </Link>
 
                 <Col className="home__carousel-container bg-light border p-4 rounded mx-auto d-flex justify-center align-middle">
