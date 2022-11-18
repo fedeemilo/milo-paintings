@@ -45,7 +45,6 @@ export const MEDIA_DATA = {
     TRIANGLES_PATTERN: trianglesPattern,
     MOSAIC_PATTERN: mosaicPattern,
     PIPES_PATTERN: pipesPattern,
-
     ACUARELA_CONTRALUZ_1: acuarelaContraluz1,
     ACUARELA_EL_CAMPITO: acuarelaElCampito,
     ACUARELA_EL_MUELLE: acuarelaElMuelle,
@@ -60,7 +59,6 @@ export const MEDIA_DATA = {
     ACUARELA_PAISAJE_6: acuarelaPaisaje6,
     ACUARELA_PAISAJE_NEVADO_1: acuarelaPaisajeNevado1,
     ACUARELA_PAISAJE_NEVADO_2: acuarelaPaisajeNevado2,
-
     ACUARELA_PLAYA_1: acuarelaPlaya1,
     ACUARELA_RANCHO_1: acuarelaRancho1,
     ACUARELA_SORPRESA: acuarelaSorpresa,

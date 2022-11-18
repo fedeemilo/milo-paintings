@@ -176,6 +176,13 @@ export const PAINT_CARDS = [
         altText: "Vieja Canilla",
         caption: "Acuarela",
         price: 100
+    },
+    {
+        key: 25,
+        src: MEDIA_DATA.ACUARELA_EL_PARQUE,
+        altText: "El Parque",
+        caption: "Acuarela",
+        price: 110
     }
 ];
 
