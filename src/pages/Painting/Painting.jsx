@@ -1,4 +1,4 @@
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation } from "react-router-dom";
 import {
     Container,
     Card,
@@ -7,11 +7,11 @@ import {
     CardTitle,
     CardSubtitle,
     CardFooter
-} from 'reactstrap';
-import { PAINT_CARDS } from '../../assets/dummy';
-import InfoFooter from '../../components/InfoFooter/InfoFooter';
-import NavBar from '../../components/NavBar/NavBar';
-import { useStateContext } from '../../context/ContextProvider';
+} from "reactstrap";
+import { PAINT_CARDS } from "../../assets/dummy";
+import InfoFooter from "../../components/InfoFooter/InfoFooter";
+import NavBar from "../../components/NavBar/NavBar";
+import { useStateContext } from "../../context/ContextProvider";
 
 const Painting = () => {
     const { frameWidth, frameColor } = useStateContext();
@@ -29,16 +29,18 @@ const Painting = () => {
     return (
         <div
             className="d-flex flex-column justify-center align-items-center"
-            style={{ height: '90vh' }}
+            style={{ height: "90vh" }}
         >
-            <NavBar frameColor={frameColor} />
+            <div className="mt-5" style={{ position: "relative", top: "1rem" }}>
+                <NavBar frameColor={frameColor} />
+            </div>
             <Container
                 className="mt-4 d-flex justify-center align-center align-items-center align-self-center"
                 style={{
-                    transition: '300ms'
+                    transition: "300ms"
                 }}
             >
-                <Card style={{ width: '38rem' }}>
+                <Card style={{ width: "38rem" }}>
                     <CardImg
                         alt={title}
                         src={imgSrc}

@@ -183,6 +183,13 @@ export const PAINT_CARDS = [
         altText: "El Parque",
         caption: "Acuarela",
         price: 110
+    },
+    {
+        key: 26,
+        src: MEDIA_DATA.MATEANDO,
+        altText: "Mateando",
+        caption: "Óleo sobre lienzo",
+        price: 320
     }
 ];
 

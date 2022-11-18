@@ -7,6 +7,7 @@ import bodegonAntiguo from "../assets/cuadros/bodegon_antiguo.jpg";
 import bodegonLaBodega from "../assets/cuadros/bodegon_la_bodega.jpg";
 import ciervosEnOtono from "../assets/cuadros/ciervos_en_otono.jpg";
 import paisajeNevado from "../assets/cuadros/paisaje_nevado.jpg";
+import mateando from "../assets/cuadros/mateando.jpeg";
 
 // ACUARELAS
 import acuarelaContraluz1 from "../assets/acuarelas/acuarela_contraluz_1.jpg";
@@ -45,6 +46,7 @@ export const MEDIA_DATA = {
     TRIANGLES_PATTERN: trianglesPattern,
     MOSAIC_PATTERN: mosaicPattern,
     PIPES_PATTERN: pipesPattern,
+    MATEANDO: mateando,
     ACUARELA_CONTRALUZ_1: acuarelaContraluz1,
     ACUARELA_EL_CAMPITO: acuarelaElCampito,
     ACUARELA_EL_MUELLE: acuarelaElMuelle,
