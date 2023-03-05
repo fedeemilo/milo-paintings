@@ -1,13 +1,22 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Carousel, CarouselControl, CarouselItem } from 'reactstrap';
-import { PAINT_CARDS } from '../../assets/dummy';
-import { useStateContext } from '../../context/ContextProvider';
-import './paint-carousel.css';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Carousel, CarouselControl, CarouselItem } from "reactstrap";
+import { PAINT_CARDS } from "../../assets/dummy";
+import { useStateContext } from "../../context/ContextProvider";
+import "./paint-carousel.css";
 
 const PaintCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
+
+    const [paintings, setPaintings] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/api/paintings")
+            .then(res => res.json())
+            .then(data => setPaintings(data))
+            .catch(err => console.error(err));
+    }, []);
 
     const navigate = useNavigate();
 
@@ -39,6 +48,8 @@ const PaintCarousel = () => {
         });
     };
 
+    console.log(paintings);
+
     const carouselItemData = PAINT_CARDS.map(item => {
         return (
             <CarouselItem
@@ -54,7 +65,7 @@ const PaintCarousel = () => {
                 />
                 <div
                     className="carousel-text"
-                    style={{ marginLeft: '3rem', marginTop: '1rem' }}
+                    style={{ marginLeft: "3rem", marginTop: "1rem" }}
                 >
                     <p>{item.altText}</p>
                     <small>{item.caption}</small>
