@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Container, Col, Badge } from "reactstrap";
 import { useStateContext } from "../../context/ContextProvider";
 import { Settings, PaintCarousel } from "../../components";
@@ -7,9 +8,18 @@ import { Link } from "react-router-dom";
 const Home = () => {
     const { frameColor } = useStateContext();
 
+    const [paintings, setPaintings] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/api/paintings")
+            .then(res => res.json())
+            .then(data => setPaintings(data))
+            .catch(err => console.error(err));
+    }, []);
+
     return (
         <>
-            <Settings isHome />
+            {/* <Settings isHome /> */}
             <Container>
                 <Link
                     to="/"
@@ -19,8 +29,11 @@ const Home = () => {
                     <Badge color="dark">M</Badge>ilo Pinturas
                 </Link>
 
-                <Col className="home__carousel-container bg-light border p-4 rounded mx-auto d-flex justify-center align-middle">
-                    <PaintCarousel />
+                <Col
+                    md={12}
+                    className="home__carousel-container p-4 rounded mx-auto d-flex justify-center align-middle"
+                >
+                    <PaintCarousel paintCards={paintings} />
                 </Col>
             </Container>
         </>

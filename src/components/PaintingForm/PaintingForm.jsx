@@ -8,7 +8,8 @@ import {
     Label,
     Input,
     Button,
-    Alert
+    Alert,
+    Spinner
 } from "reactstrap";
 
 const CreatePaintingForm = () => {
@@ -18,11 +19,15 @@ const CreatePaintingForm = () => {
     const [painting, setPainting] = useState(null);
 
     const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const fileInput = useRef(null);
 
     const handleSubmit = async event => {
         event.preventDefault();
+
+        setIsLoading(true);
 
         const formData = new FormData();
         formData.append("title", title);
@@ -32,22 +37,22 @@ const CreatePaintingForm = () => {
 
         try {
             const response = await fetch(
-                "http://localhost:3000/api/paintings",
+                "https://milo-paintings-backend.vercel.app/api/paintings",
                 {
                     method: "POST",
                     body: formData
                 }
             );
+            setIsLoading(false);
             if (!response.ok) {
+                handleErrorAlert();
+                clearInputs();
                 throw new Error("Error creating painting");
             }
 
-            setTitle("");
-            setPaintingType("");
-            setPrice("");
-            fileInput.current.value = "";
+            clearInputs();
 
-            handleSuccessAlert(response.ok);
+            handleSuccessAlert();
 
             const newPainting = await response.json();
             console.log("New painting created:", newPainting);
@@ -56,11 +61,26 @@ const CreatePaintingForm = () => {
         }
     };
 
-    const handleSuccessAlert = ok => {
+    const clearInputs = () => {
+        setTitle("");
+        setPaintingType("");
+        setPrice("");
+        fileInput.current.value = "";
+    };
+
+    const handleSuccessAlert = () => {
         setSubmitSuccess(true);
 
         setTimeout(() => {
             setSubmitSuccess(false);
+        }, 5000);
+    };
+
+    const handleErrorAlert = () => {
+        setSubmitError(true);
+
+        setTimeout(() => {
+            setSubmitError(false);
         }, 5000);
     };
 
@@ -83,16 +103,29 @@ const CreatePaintingForm = () => {
     return (
         <>
             {submitSuccess && (
-                <Container className="w-75 mt-4">
+                <Container className="w-50 mt-4">
                     <Alert color="success">Pintura subida con exito!</Alert>
+                </Container>
+            )}
+            {submitError && (
+                <Container className="w-50 mt-4">
+                    <Alert color="danger">
+                        Error al subir la pintura, intente de nuevo.
+                    </Alert>
                 </Container>
             )}
             <Container
                 className={
-                    "mt-2 bg-light p-3 border rounded w-75 d-flex justify-content-center"
+                    "mt-2 bg-light p-3 border rounded w-50 d-flex justify-center align-center"
                 }
             >
-                <Row className="justify-content-center">
+                <Row className="justify-center">
+                    <h1
+                        class="display-4 text-center"
+                        style={{ fontSize: "1.9rem" }}
+                    >
+                        Cargar Pintura
+                    </h1>
                     <Col md={12}>
                         <Form onSubmit={handleSubmit}>
                             <FormGroup>
@@ -137,9 +170,23 @@ const CreatePaintingForm = () => {
                                     onChange={handlePaintingChange}
                                 />
                             </FormGroup>
-                            <Button color="primary" className="w-100">
-                                Cargar
-                            </Button>
+
+                            <div className={"d-flex"}>
+                                <Button color="primary" className="w-100">
+                                    Cargar
+                                </Button>
+                                {isLoading && (
+                                    <Spinner
+                                        color="primary"
+                                        style={{
+                                            width: "2rem",
+                                            height: "2rem",
+                                            marginLeft: ".5rem"
+                                        }}
+                                        type="grow"
+                                    />
+                                )}
+                            </div>
                         </Form>
                     </Col>
                 </Row>

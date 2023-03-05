@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes as Switch } from "react-router-dom";
 import CreatePaintingForm from "./components/PaintingForm/PaintingForm";
+import PaintingsGrid from "./components/PaintingsGrid/PaintingsGrid";
 import Home from "./pages/Home/Home";
 import Painting from "./pages/Painting/Painting";
 
@@ -13,6 +14,7 @@ const Router = () => {
                     path={"/painting-form"}
                     element={<CreatePaintingForm />}
                 />
+                <Route path={"/paintings-list"} element={<PaintingsGrid />} />
             </Switch>
         </BrowserRouter>
     );
