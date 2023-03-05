@@ -49,7 +49,9 @@ function PaintingsList() {
     };
     useEffect(() => {
         async function fetchPaintings() {
-            const response = await fetch("http://localhost:3000/api/paintings");
+            const response = await fetch(
+                "https://milo-paintings-backend.vercel.app/api/paintings"
+            );
             const data = await response.json();
             setPaintings(data);
         }
