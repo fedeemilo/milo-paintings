@@ -30,7 +30,7 @@ function PaintingsList() {
     const confirmDelete = async () => {
         try {
             await fetch(
-                `http://localhost:3000/api/paintings/${paintingToDelete}`,
+                `https://milo-paintings-backend.vercel.app/api/paintings/${paintingToDelete}`,
                 {
                     method: "DELETE"
                 }
