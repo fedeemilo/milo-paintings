@@ -11,6 +11,7 @@ import {
     Alert,
     Spinner
 } from "reactstrap";
+import { URL_API } from "../../constants/urls";
 
 const CreatePaintingForm = () => {
     const [title, setTitle] = useState("");
@@ -36,13 +37,10 @@ const CreatePaintingForm = () => {
         formData.append("painting", painting);
 
         try {
-            const response = await fetch(
-                "https://milo-paintings-backend.vercel.app/api/paintings",
-                {
-                    method: "POST",
-                    body: formData
-                }
-            );
+            const response = await fetch(URL_API, {
+                method: "POST",
+                body: formData
+            });
             setIsLoading(false);
             if (!response.ok) {
                 handleErrorAlert();

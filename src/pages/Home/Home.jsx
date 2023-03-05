@@ -4,6 +4,7 @@ import { useStateContext } from "../../context/ContextProvider";
 import { Settings, PaintCarousel } from "../../components";
 import "./home.css";
 import { Link } from "react-router-dom";
+import { URL_API } from "../../constants/urls";
 
 const Home = () => {
     const { frameColor } = useStateContext();
@@ -11,7 +12,7 @@ const Home = () => {
     const [paintings, setPaintings] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/paintings")
+        fetch(URL_API)
             .then(res => res.json())
             .then(data => setPaintings(data))
             .catch(err => console.error(err));
