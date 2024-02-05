@@ -10,6 +10,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 300ms;
+}
+
+.image-grid-item:hover {
+    transform: scale(1.05);
 }
 
 .grid-title {
