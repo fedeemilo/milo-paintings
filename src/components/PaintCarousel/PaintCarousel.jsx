@@ -23,10 +23,10 @@ const PaintCarousel = () => {
             {loading ? (
                 <div className="spinner-container">
                     <Spinner
-                        color="primary"
+                        color="secondary"
                         style={{
-                            width: '2rem',
-                            height: '2rem',
+                            width: '4rem',
+                            height: '4rem',
                             marginLeft: '.5rem'
                         }}
                         type="grow"
