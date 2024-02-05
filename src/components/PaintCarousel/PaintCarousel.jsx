@@ -7,16 +7,24 @@ const PaintCarousel = () => {
     const { paintings } = useStateContext()
 
     return (
-        <div className="image-grid">
-            {paintings.map(image => (
-                <Link key={image.title} to={`/milo-painting/${image.title}`}>
-                    <img
-                        src={image.src}
-                        alt={image.title}
-                        className="image-grid-item"
-                    />
-                </Link>
-            ))}
+        <div>
+            <h1 className="grid-title">
+                Guillermo Milone (MILO) - guillemilo@gmail.com
+            </h1>
+            <div className="image-grid">
+                {paintings.map(image => (
+                    <Link
+                        key={image.title}
+                        to={`/milo-painting/${image.title}`}
+                    >
+                        <img
+                            src={image.src}
+                            alt={image.title}
+                            className="image-grid-item"
+                        />
+                    </Link>
+                ))}
+            </div>
         </div>
     )
 }
