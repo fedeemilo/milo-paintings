@@ -19,9 +19,11 @@ const Painting = () => {
 
     const findCard = paintings.filter(card => title.includes(card.title))[0]
 
-    const imgSrc = location?.state?.currentSrc || findCard?.src
-    const imgPrice = location?.state?.price || findCard?.price
-    const imgCaption = location?.state?.caption || findCard?.caption
+    console.log({ findCard })
+
+    const imgSrc = findCard?.src
+    const imgPrice = findCard?.price
+    const imgCaption = findCard?.paintingType
 
     return (
         <div
