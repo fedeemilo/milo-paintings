@@ -22,9 +22,9 @@ const Painting = () => {
         title.includes(card.altText)
     )[0];
 
-    const imgSrc = location?.state?.currentSrc || findCard.src;
-    const imgPrice = location?.state?.price || findCard.price;
-    const imgCaption = location?.state?.caption || findCard.caption;
+    const imgSrc = location?.state?.currentSrc || findCard?.src;
+    const imgPrice = location?.state?.price || findCard?.price;
+    const imgCaption = location?.state?.caption || findCard?.caption;
 
     return (
         <div
