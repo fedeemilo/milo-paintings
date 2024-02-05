@@ -36,7 +36,7 @@ const Painting = () => {
                         height={'100%'}
                         top
                         style={{
-                            border: `${frameWidth}px solid ${frameColor}`
+                            border: `15px solid ${frameColor}`
                         }}
                     />
                     <CardBody>
