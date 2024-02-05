@@ -112,7 +112,7 @@ function PaintingsList() {
             <Container>
                 <Row>
                     {paintings.map(painting => (
-                        <Col sm="4" key={painting._id}>
+                        <Col sm="3" key={painting._id}>
                             <Card>
                                 <div className="card-buttons">
                                     <button
