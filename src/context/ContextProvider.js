@@ -14,10 +14,18 @@ export const ContextProvider = ({ children }) => {
     const [imgPlusWidth, setImgPlusWidth] = useState(initialState.imgPlusWidth)
 
     useEffect(() => {
-        fetch(URL_API)
-            .then(res => res.json())
-            .then(data => setPaintings(data))
-            .catch(err => console.error(err))
+        const localStoragePaintings = localStorage.getItem('paintings')
+        if (localStoragePaintings) {
+            setPaintings(JSON.parse(localStoragePaintings))
+        } else {
+            fetch(URL_API)
+                .then(res => res.json())
+                .then(data => {
+                    setPaintings(data)
+                    localStorage.setItem('paintings', JSON.stringify(data))
+                })
+                .catch(err => console.error(err))
+        }
     }, [])
 
     const [paintings, setPaintings] = useState([])
