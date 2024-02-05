@@ -1,4 +1,4 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from 'react-router-dom'
 import {
     Container,
     Card,
@@ -7,40 +7,37 @@ import {
     CardTitle,
     CardSubtitle,
     CardFooter
-} from "reactstrap";
-import { PAINT_CARDS } from "../../assets/dummy";
-import InfoFooter from "../../components/InfoFooter/InfoFooter";
-import NavBar from "../../components/NavBar/NavBar";
-import { useStateContext } from "../../context/ContextProvider";
+} from 'reactstrap'
+import InfoFooter from '../../components/InfoFooter/InfoFooter'
+import NavBar from '../../components/NavBar/NavBar'
+import { useStateContext } from '../../context/ContextProvider'
 
 const Painting = () => {
-    const { frameWidth, frameColor } = useStateContext();
-    const { title } = useParams();
-    const location = useLocation();
+    const { frameWidth, frameColor, paintings } = useStateContext()
+    const { title } = useParams()
+    const location = useLocation()
 
-    const findCard = PAINT_CARDS.filter(card =>
-        title.includes(card.altText)
-    )[0];
+    const findCard = paintings.filter(card => title.includes(card.title))[0]
 
-    const imgSrc = location?.state?.currentSrc || findCard?.src;
-    const imgPrice = location?.state?.price || findCard?.price;
-    const imgCaption = location?.state?.caption || findCard?.caption;
+    const imgSrc = location?.state?.currentSrc || findCard?.src
+    const imgPrice = location?.state?.price || findCard?.price
+    const imgCaption = location?.state?.caption || findCard?.caption
 
     return (
         <div
             className="d-flex flex-column justify-center align-items-center"
-            style={{ height: "90vh" }}
+            style={{ height: '90vh' }}
         >
-            <div className="mt-5" style={{ position: "relative", top: "1rem" }}>
+            <div className="mt-5" style={{ position: 'relative', top: '1rem' }}>
                 <NavBar frameColor={frameColor} />
             </div>
             <Container
                 className="mt-4 d-flex justify-center align-center align-items-center align-self-center"
                 style={{
-                    transition: "300ms"
+                    transition: '300ms'
                 }}
             >
-                <Card style={{ width: "38rem" }}>
+                <Card style={{ width: '38rem' }}>
                     <CardImg
                         alt={title}
                         src={imgSrc}
@@ -62,7 +59,7 @@ const Painting = () => {
             </Container>
             <InfoFooter />
         </div>
-    );
-};
+    )
+}
 
-export default Painting;
+export default Painting

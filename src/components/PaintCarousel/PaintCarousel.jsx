@@ -1,32 +1,31 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Carousel, CarouselControl, CarouselItem } from "reactstrap";
-import { PAINT_CARDS } from "../../assets/dummy";
-import { useStateContext } from "../../context/ContextProvider";
-import "./paint-carousel.css";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Carousel, CarouselControl, CarouselItem } from 'reactstrap'
+import { useStateContext } from '../../context/ContextProvider'
+import './paint-carousel.css'
 
 const PaintCarousel = ({ paintCards }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [animating, setAnimating] = useState(false);
-    const navigate = useNavigate();
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [animating, setAnimating] = useState(false)
+    const navigate = useNavigate()
 
-    const { frameColor, frameWidth } = useStateContext();
-    const itemsLength = paintCards.length - 1;
+    const { frameColor, frameWidth } = useStateContext()
+    const itemsLength = paintCards.length - 1
 
     const next = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === itemsLength ? 0 : activeIndex + 1;
-        setActiveIndex(nextIndex);
-    };
+        if (animating) return
+        const nextIndex = activeIndex === itemsLength ? 0 : activeIndex + 1
+        setActiveIndex(nextIndex)
+    }
 
     const previous = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === 0 ? itemsLength : activeIndex - 1;
-        setActiveIndex(nextIndex);
-    };
+        if (animating) return
+        const nextIndex = activeIndex === 0 ? itemsLength : activeIndex - 1
+        setActiveIndex(nextIndex)
+    }
 
     const navigateToPainting = (e, item) => {
-        const { currentSrc, alt, width } = e.target;
+        const { currentSrc, alt, width } = e.target
 
         navigate(`/milo-painting/${alt}`, {
             state: {
@@ -35,10 +34,10 @@ const PaintCarousel = ({ paintCards }) => {
                 price: item.price,
                 caption: item.caption
             }
-        });
-    };
+        })
+    }
 
-    console.log(paintCards);
+    console.log(paintCards)
 
     const carouselItemData = paintCards.map((item, i) => {
         return (
@@ -55,15 +54,15 @@ const PaintCarousel = ({ paintCards }) => {
                 />
                 <div
                     className="carousel-text"
-                    style={{ marginLeft: "3rem", marginTop: "1rem" }}
+                    style={{ marginLeft: '3rem', marginTop: '1rem' }}
                 >
                     <p>{item.title}</p>
                     <small>{item.paintingType}</small>
                     <p className="float-end fw-bold">U$S {item.price}</p>
                 </div>
             </CarouselItem>
-        );
-    });
+        )
+    })
 
     return (
         <div
@@ -89,7 +88,7 @@ const PaintCarousel = ({ paintCards }) => {
                 />
             </Carousel>
         </div>
-    );
-};
+    )
+}
 
-export default PaintCarousel;
+export default PaintCarousel

@@ -1,26 +1,14 @@
-import { useState, useEffect } from "react";
-import { Container, Col, Badge } from "reactstrap";
-import { useStateContext } from "../../context/ContextProvider";
-import { Settings, PaintCarousel } from "../../components";
-import "./home.css";
-import { Link } from "react-router-dom";
-import { URL_API } from "../../constants/urls";
+import { Container, Col, Badge } from 'reactstrap'
+import { useStateContext } from '../../context/ContextProvider'
+import { PaintCarousel } from '../../components'
+import './home.css'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
-    const { frameColor } = useStateContext();
-
-    const [paintings, setPaintings] = useState([]);
-
-    useEffect(() => {
-        fetch(URL_API)
-            .then(res => res.json())
-            .then(data => setPaintings(data))
-            .catch(err => console.error(err));
-    }, []);
+    const { frameColor, paintings } = useStateContext()
 
     return (
         <>
-            {/* <Settings isHome /> */}
             <Container>
                 <Link
                     to="/"
@@ -38,7 +26,7 @@ const Home = () => {
                 </Col>
             </Container>
         </>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home

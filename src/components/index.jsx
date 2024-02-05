@@ -1,6 +1,5 @@
-import ColorPicker from "./ColorPicker/ColorPicker";
-import WidthPicker from "./WidthPicker/WidthPicker";
-import PaintCarousel from "./PaintCarousel/PaintCarousel";
-import Settings from "./Settings/Settings";
+import ColorPicker from './ColorPicker/ColorPicker'
+import WidthPicker from './WidthPicker/WidthPicker'
+import PaintCarousel from './PaintCarousel/PaintCarousel'
 
-export { ColorPicker, WidthPicker, PaintCarousel, Settings };
+export { ColorPicker, WidthPicker, PaintCarousel }
