@@ -13,9 +13,8 @@ import NavBar from '../../components/NavBar/NavBar'
 import { useStateContext } from '../../context/ContextProvider'
 
 const Painting = () => {
-    const { frameWidth, frameColor, paintings } = useStateContext()
+    const { frameColor, paintings } = useStateContext()
     const { title } = useParams()
-
     const findCard = paintings.filter(card => title.includes(card.title))[0]
 
     return (

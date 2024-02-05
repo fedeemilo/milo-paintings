@@ -24,3 +24,10 @@
     color: #494848;
     font-style: italic;
 }
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
