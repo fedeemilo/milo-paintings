@@ -1,52 +1,12 @@
-.carousel-container {
-    margin: 0 auto;
-    width: 1200px;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 10px 11px 31px 10px rgba(91, 130, 145, 1);
-    min-height: 100%;
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+    margin-top: 20px;
 }
 
-.carousel-image {
+.image-grid-item {
     width: 100%;
-    height: 67vh;
-    object-fit: contain;
-    cursor: pointer;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(5);
-}
-
-.carousel-container img {
-    object-fit: contain;
-}
-
-@media screen and (max-width: 800px) {
-    .carousel-container {
-        margin-top: -4.7rem;
-        width: 100% !important;
-        padding: 0;
-        box-shadow: none;
-        border: none !important;
-    }
-
-    .carousel-image {
-        position: relative;
-        bottom: -2rem;
-        object-fit: scale-down;
-    }
-
-    .carousel-text {
-        position: relative;
-        bottom: 5.5rem;
-        right: 2.7rem;
-    }
-
-    .carousel-price {
-        position: relative;
-        right: -1rem;
-        bottom: 5.5rem;
-    }
+    height: 100%;
+    object-fit: cover;
 }
