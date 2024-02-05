@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import {
     Container,
     Row,
@@ -8,93 +8,93 @@ import {
     CardTitle,
     CardSubtitle,
     CardBody
-} from "reactstrap";
-import "./paintings-grid.css";
-import { FaEdit, FaTrash } from "react-icons/fa";
-import DeleteModal from "./DeleteModal";
-import EditModal from "./EditModal";
-import { URL_API } from "../../constants/urls";
+} from 'reactstrap'
+import './paintings-grid.css'
+import { FaEdit, FaTrash } from 'react-icons/fa'
+import DeleteModal from './DeleteModal'
+import EditModal from './EditModal'
+import { URL_API } from '../../constants/urls'
 
 function PaintingsList() {
-    const [paintings, setPaintings] = useState([]);
-    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-    const [editModalOpen, setEditModalOpen] = useState(false);
-    const [paintingToDelete, setPaintingToDelete] = useState(null);
-    const [paintingToEdit, setPaintingToEdit] = useState(null);
+    const [paintings, setPaintings] = useState([])
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false)
+    const [editModalOpen, setEditModalOpen] = useState(false)
+    const [paintingToDelete, setPaintingToDelete] = useState(null)
+    const [paintingToEdit, setPaintingToEdit] = useState(null)
     const [formData, setFormData] = useState({
-        title: "",
-        paintingType: "",
-        price: "",
-        src: ""
-    });
+        title: '',
+        paintingType: '',
+        price: '',
+        src: ''
+    })
 
     const handleDelete = paintingId => {
-        setPaintingToDelete(paintingId);
-        setDeleteModalOpen(true);
-    };
+        setPaintingToDelete(paintingId)
+        setDeleteModalOpen(true)
+    }
 
     const confirmDelete = async () => {
         try {
             await fetch(`${URL_API}/${paintingToDelete}`, {
-                method: "DELETE"
-            });
-            setDeleteModalOpen(false);
-            setPaintingToDelete(null);
-            setPaintings(paintings.filter(p => p._id !== paintingToDelete));
+                method: 'DELETE'
+            })
+            setDeleteModalOpen(false)
+            setPaintingToDelete(null)
+            setPaintings(paintings.filter(p => p._id !== paintingToDelete))
         } catch (err) {
-            console.log(err);
+            console.log(err)
         }
-    };
+    }
 
     const cancelDelete = () => {
-        setDeleteModalOpen(false);
-        setPaintingToDelete(null);
-    };
+        setDeleteModalOpen(false)
+        setPaintingToDelete(null)
+    }
     useEffect(() => {
         async function fetchPaintings() {
-            const response = await fetch(URL_API);
-            const data = await response.json();
-            setPaintings(data);
+            const response = await fetch(URL_API)
+            const data = await response.json()
+            setPaintings(data)
         }
-        fetchPaintings();
-    }, []);
+        fetchPaintings()
+    }, [])
 
     const handleEdit = painting => {
-        setPaintingToEdit(painting);
+        setPaintingToEdit(painting)
         setFormData({
             title: painting.title,
             paintingType: painting.paintingType,
             price: painting.price,
             src: painting.src
-        });
-        setEditModalOpen(true);
-    };
+        })
+        setEditModalOpen(true)
+    }
 
     const handleSubmit = async event => {
-        event.preventDefault();
+        event.preventDefault()
         try {
             await fetch(`${URL_API}/${paintingToEdit._id}`, {
-                method: "PUT",
+                method: 'PUT',
                 body: JSON.stringify(formData),
                 headers: {
-                    "Content-Type": "application/json"
+                    'Content-Type': 'application/json'
                 }
-            });
-            setEditModalOpen(false);
-            setPaintingToEdit(null);
+            })
+            setEditModalOpen(false)
+            setPaintingToEdit(null)
             setFormData({
-                title: "",
-                paintingType: "",
-                price: "",
-                src: ""
-            });
-            const response = await fetch(URL_API);
-            const paintingsData = await response.json();
-            setPaintings(paintingsData);
+                title: '',
+                paintingType: '',
+                price: '',
+                src: ''
+            })
+            const response = await fetch(URL_API)
+            const paintingsData = await response.json()
+            setPaintings(paintingsData)
         } catch (err) {
-            console.log(err);
+            console.log(err)
         }
-    };
+    }
 
     useEffect(() => {
         if (paintingToEdit) {
@@ -103,14 +103,13 @@ function PaintingsList() {
                 paintingType: paintingToEdit.paintingType,
                 price: paintingToEdit.price,
                 src: paintingToEdit.src
-            });
+            })
         }
-    }, [paintingToEdit]);
+    }, [paintingToEdit])
 
     return (
         <div className="paintings-list-container">
             <Container>
-                <h1 className="title mt-4">Lista Milo Pinturas</h1>
                 <Row>
                     {paintings.map(painting => (
                         <Col sm="4" key={painting._id}>
@@ -172,7 +171,7 @@ function PaintingsList() {
                 />
             </Container>
         </div>
-    );
+    )
 }
 
-export default PaintingsList;
+export default PaintingsList
