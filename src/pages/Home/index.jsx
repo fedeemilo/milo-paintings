@@ -12,7 +12,7 @@ const Home = () => {
             <Container>
                 <Link
                     to="/"
-                    className="milo-logo d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mb-2 mt-3"
+                    className="milo-logo d-flex justify-center text-center text-uppercase font-medium leading-tight text-3xl mt-3"
                     style={{ color: frameColor }}
                 >
                     <Badge color="dark">M</Badge>ilo Pinturas
@@ -20,7 +20,7 @@ const Home = () => {
 
                 <Col
                     md={12}
-                    className="home__carousel-container p-4 rounded mx-auto d-flex justify-center align-middle"
+                    className="home__carousel-container rounded mx-auto d-flex justify-center align-middle"
                 >
                     <PaintCarousel paintCards={paintings} />
                 </Col>

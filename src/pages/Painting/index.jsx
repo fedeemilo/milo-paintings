@@ -1,4 +1,4 @@
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {
     Container,
     Card,
@@ -15,26 +15,16 @@ import { useStateContext } from '../../context/ContextProvider'
 const Painting = () => {
     const { frameWidth, frameColor, paintings } = useStateContext()
     const { title } = useParams()
-    const location = useLocation()
 
     const findCard = paintings.filter(card => title.includes(card.title))[0]
 
-    console.log({ findCard })
-
-    const imgSrc = findCard?.src
-    const imgPrice = findCard?.price
-    const imgCaption = findCard?.paintingType
-
     return (
-        <div
-            className="d-flex flex-column justify-center align-items-center"
-            style={{ height: '90vh' }}
-        >
-            <div className="mt-5" style={{ position: 'relative', top: '1rem' }}>
+        <div className="d-flex flex-column justify-center align-items-center">
+            <div className="mt-5">
                 <NavBar frameColor={frameColor} />
             </div>
             <Container
-                className="mt-4 d-flex justify-center align-center align-items-center align-self-center"
+                className=" d-flex justify-center align-center align-items-center align-self-center"
                 style={{
                     transition: '300ms'
                 }}
@@ -42,7 +32,8 @@ const Painting = () => {
                 <Card style={{ width: '38rem' }}>
                     <CardImg
                         alt={title}
-                        src={imgSrc}
+                        src={findCard?.src}
+                        height={'100%'}
                         top
                         style={{
                             border: `${frameWidth}px solid ${frameColor}`
@@ -51,11 +42,11 @@ const Painting = () => {
                     <CardBody>
                         <CardTitle tag="h5">{title}</CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6">
-                            {imgCaption}
+                            {findCard?.paintingType}
                         </CardSubtitle>
                     </CardBody>
                     <CardFooter className="text-end text-bold">
-                        U$S {imgPrice}
+                        U$S {findCard?.price}
                     </CardFooter>
                 </Card>
             </Container>

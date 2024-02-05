@@ -32,8 +32,8 @@
 }
 
 .card-img-top {
-    height: 300px;
-    object-fit: cover;
+    height: 600px;
+    object-fit: contain;
 }
 
 ::-webkit-scrollbar {

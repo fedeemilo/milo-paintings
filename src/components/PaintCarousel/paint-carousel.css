@@ -1,7 +1,6 @@
 .carousel-container {
     margin: 0 auto;
     width: 1200px;
-    height: 100%;
     padding: 50px;
     border-radius: 10px;
     box-shadow: 10px 11px 31px 10px rgba(91, 130, 145, 1);
@@ -18,6 +17,10 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(5);
+}
+
+.carousel-container img {
+    object-fit: contain;
 }
 
 @media screen and (max-width: 800px) {
