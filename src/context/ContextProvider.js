@@ -8,7 +8,6 @@ const initialState = {
     frameWidth: 20,
     imgPlusWidth: 0
 }
-
 export const ContextProvider = ({ children }) => {
     const [frameColor, setFrameColor] = useState(initialState.frameColor)
     const [frameWidth, setFrameWidth] = useState(initialState.frameWidth)
