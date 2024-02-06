@@ -119,11 +119,17 @@ const CreatePaintingForm = () => {
     }
 
     const handlePriceChange = event => {
-        setPrice(event.target.value)
+        const value = event.target.value
+        if (value === '' || /^\d+$/.test(value)) {
+            setPrice(value)
+        }
     }
 
     const handlePaintingChange = event => {
         setPainting(event.target.files[0])
+
+        setQrValue(null)
+        setPainting(null)
     }
 
     return (
