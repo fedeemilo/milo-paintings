@@ -129,7 +129,6 @@ const CreatePaintingForm = () => {
         setPainting(event.target.files[0])
 
         setQrValue(null)
-        setPainting(null)
     }
 
     return (
