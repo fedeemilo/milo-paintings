@@ -8,12 +8,27 @@ import { Spinner } from 'reactstrap'
 const PaintCarousel = () => {
     const { paintings } = useStateContext()
     const [loading, setLoading] = useState(true)
+     const [loadedImages, setLoadedImages] = useState(0)
 
+    // Load images and set loading to false when all images are loaded
     useEffect(() => {
         if (paintings.length > 0) {
-            setLoading(false)
+            paintings.forEach(painting => {
+                const img = new Image()
+                img.src = painting.src
+                img.onload = () => {
+                    setLoadedImages(prev => prev + 1)
+                }
+            })
         }
     }, [paintings])
+
+    // Set loading to false when all images are loaded
+    useEffect(() => {
+        if (loadedImages === paintings.length) {
+            setLoading(false)
+        }
+    }, [loadedImages, paintings])
 
     return (
         <div>
