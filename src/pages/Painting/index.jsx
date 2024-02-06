@@ -11,11 +11,16 @@ import {
 import InfoFooter from '../../components/InfoFooter/InfoFooter'
 import NavBar from '../../components/NavBar/NavBar'
 import { useStateContext } from '../../context/ContextProvider'
+import { useEffect } from 'react'
 
 const Painting = () => {
-    const { frameColor, paintings } = useStateContext()
+    const { frameColor, paintings, updatePaintings } = useStateContext()
     const { title } = useParams()
     const findCard = paintings.filter(card => title.includes(card.title))[0]
+
+     useEffect(() => {
+         updatePaintings()
+     }, [])
 
     return (
         <div className="d-flex flex-column justify-center align-items-center">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from 'react'
 import {
     Container,
     Row,
@@ -10,117 +10,144 @@ import {
     Button,
     Alert,
     Spinner
-} from "reactstrap";
-import { URL_API } from "../../constants/urls";
+} from 'reactstrap'
+import { URL_API } from '../../constants/urls'
+import { useStateContext } from '../../context/ContextProvider'
+
+import QRCode from 'qrcode.react'
+import { toPng } from 'html-to-image'
+
 
 const CreatePaintingForm = () => {
-    const [title, setTitle] = useState("");
-    const [paintingType, setPaintingType] = useState("");
-    const [price, setPrice] = useState("");
-    const [painting, setPainting] = useState(null);
+    const { updatePaintings } = useStateContext()
+    const [title, setTitle] = useState('')
+    const [savedTitle, setSavedTitle] = useState('')
+    const [paintingType, setPaintingType] = useState('')
+    const [price, setPrice] = useState('')
+    const [painting, setPainting] = useState(null)
 
-    const [submitSuccess, setSubmitSuccess] = useState(false);
-    const [submitError, setSubmitError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false)
+    const [submitError, setSubmitError] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
-    const fileInput = useRef(null);
+    const [qrValue, setQrValue] = useState(null)
+
+    const fileInput = useRef(null)
+    const qrRef = useRef(null)
+
+    const downloadQR = () => {
+        if (qrRef.current) {
+            toPng(qrRef.current)
+                .then(dataUrl => {
+                    const link = document.createElement('a')
+                    link.download = `${savedTitle}-QR.png`
+                    link.href = dataUrl
+                    link.click()
+                })
+                .catch(err => {
+                    console.error(err)
+                })
+        }
+    }
 
     const handleSubmit = async event => {
-        event.preventDefault();
+        event.preventDefault()
 
-        setIsLoading(true);
+        setIsLoading(true)
 
-        const formData = new FormData();
-        formData.append("title", title);
-        formData.append("paintingType", paintingType);
-        formData.append("price", price);
-        formData.append("painting", painting);
+        const formData = new FormData()
+        formData.append('title', title)
+        formData.append('paintingType', paintingType)
+        formData.append('price', price)
+        formData.append('painting', painting)
 
         try {
             const response = await fetch(URL_API, {
-                method: "POST",
+                method: 'POST',
                 body: formData
-            });
-            setIsLoading(false);
+            })
+            setIsLoading(false)
             if (!response.ok) {
-                handleErrorAlert();
-                clearInputs();
-                throw new Error("Error creating painting");
+                handleErrorAlert()
+                clearInputs()
+                throw new Error('Error creating painting')
             }
 
-            clearInputs();
+            // Set the QR value
+            setQrValue(
+                `https://milo-paintings.vercel.app/milo-painting/${title}`
+            )
 
-            handleSuccessAlert();
-
-            const newPainting = await response.json();
-            console.log("New painting created:", newPainting);
+            clearInputs()
+            handleSuccessAlert()
+            updatePaintings()
         } catch (err) {
-            console.error(err);
+            console.error(err)
         }
-    };
+    }
 
     const clearInputs = () => {
-        setTitle("");
-        setPaintingType("");
-        setPrice("");
-        fileInput.current.value = "";
-    };
+        setTitle('')
+        setPaintingType('')
+        setPrice('')
+        fileInput.current.value = ''
+    }
 
     const handleSuccessAlert = () => {
-        setSubmitSuccess(true);
+        setSubmitSuccess(true)
 
         setTimeout(() => {
-            setSubmitSuccess(false);
-        }, 5000);
-    };
+            setSubmitSuccess(false)
+        }, 5000)
+    }
 
     const handleErrorAlert = () => {
-        setSubmitError(true);
+        setSubmitError(true)
 
         setTimeout(() => {
-            setSubmitError(false);
-        }, 5000);
-    };
+            setSubmitError(false)
+        }, 5000)
+    }
 
     const handleTitleChange = event => {
-        setTitle(event.target.value);
-    };
+        setTitle(event.target.value)
+        setSavedTitle(event.target.value)
+    }
 
     const handlePaintingTypeChange = event => {
-        setPaintingType(event.target.value);
-    };
+        setPaintingType(event.target.value)
+    }
 
     const handlePriceChange = event => {
-        setPrice(event.target.value);
-    };
+        setPrice(event.target.value)
+    }
 
     const handlePaintingChange = event => {
-        setPainting(event.target.files[0]);
-    };
+        setPainting(event.target.files[0])
+    }
 
     return (
         <>
             {submitSuccess && (
-                <Container className="w-50 mt-4">
+                <Container className="w-50 mt-4 position-absolute top-0 start-50 translate-middle-x">
                     <Alert color="success">Pintura subida con exito!</Alert>
                 </Container>
             )}
             {submitError && (
-                <Container className="w-50 mt-4">
+                <Container className="w-50 mt-4 position-absolute top-0 start-50 translate-middle-x">
                     <Alert color="danger">
                         Error al subir la pintura, intente de nuevo.
                     </Alert>
                 </Container>
             )}
             <Container
-                className={
-                    "mt-2 bg-light p-3 border rounded w-50 d-flex justify-center align-center"
-                }
+                className={'d-flex justify-content-center align-items-center'}
+                style={{ minHeight: '100vh' }}
             >
-                <Row className="justify-center">
+                <Row className="bg-light p-3 border rounded w-50">
                     <h1
-                        class="display-4 text-center"
-                        style={{ fontSize: "1.9rem" }}
+                        className="display-4 text-center"
+                        style={{ fontSize: '1.9rem' }}
                     >
                         Cargar Pintura
                     </h1>
@@ -169,7 +196,7 @@ const CreatePaintingForm = () => {
                                 />
                             </FormGroup>
 
-                            <div className={"d-flex"}>
+                            <div className={'d-flex'}>
                                 <Button color="primary" className="w-100">
                                     Cargar
                                 </Button>
@@ -177,9 +204,9 @@ const CreatePaintingForm = () => {
                                     <Spinner
                                         color="primary"
                                         style={{
-                                            width: "2rem",
-                                            height: "2rem",
-                                            marginLeft: ".5rem"
+                                            width: '2rem',
+                                            height: '2rem',
+                                            marginLeft: '.5rem'
                                         }}
                                         type="grow"
                                     />
@@ -188,9 +215,30 @@ const CreatePaintingForm = () => {
                         </Form>
                     </Col>
                 </Row>
+                {qrValue && (
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: '70%',
+                            transform: 'translateX(50%)',
+                            top: '40%',
+                            transform: 'translateY(-50%)'
+                        }}
+                    >
+                        <div ref={qrRef}>
+                            <QRCode value={qrValue} size={256} />
+                        </div>
+                        <Button
+                            onClick={downloadQR}
+                            className="btn btn-outline-primary mt-2"
+                        >
+                            Descargar QR
+                        </Button>
+                    </div>
+                )}
             </Container>
         </>
-    );
-};
+    )
+}
 
-export default CreatePaintingForm;
+export default CreatePaintingForm

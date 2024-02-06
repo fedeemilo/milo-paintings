@@ -14,9 +14,12 @@ import { FaEdit, FaTrash } from 'react-icons/fa'
 import DeleteModal from './DeleteModal'
 import EditModal from './EditModal'
 import { URL_API } from '../../constants/urls'
+import { useStateContext } from '../../context/ContextProvider'
+
+import { RxUpdate } from 'react-icons/rx'
 
 function PaintingsList() {
-    const [paintings, setPaintings] = useState([])
+    const { paintings, setPaintings, updatePaintings } = useStateContext()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [editModalOpen, setEditModalOpen] = useState(false)
     const [paintingToDelete, setPaintingToDelete] = useState(null)
@@ -50,14 +53,7 @@ function PaintingsList() {
         setDeleteModalOpen(false)
         setPaintingToDelete(null)
     }
-    useEffect(() => {
-        async function fetchPaintings() {
-            const response = await fetch(URL_API)
-            const data = await response.json()
-            setPaintings(data)
-        }
-        fetchPaintings()
-    }, [])
+
 
     const handleEdit = painting => {
         setPaintingToEdit(painting)
@@ -110,8 +106,17 @@ function PaintingsList() {
     return (
         <div className="paintings-list-container">
             <Container>
+                <button
+                    onClick={updatePaintings}
+                    style={{ position: 'absolute', top: '10px', left: '10px' }}
+                >
+                    <div className="d-flex align-items-center fw-bold">
+                        <RxUpdate />
+                        <p style={{ marginLeft: '5px' }}>Actualizar</p>
+                    </div>
+                </button>
                 <Row>
-                    {paintings.map(painting => (
+                    {paintings?.map(painting => (
                         <Col sm="3" key={painting._id}>
                             <Card>
                                 <div className="card-buttons">

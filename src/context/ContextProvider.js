@@ -12,23 +12,27 @@ export const ContextProvider = ({ children }) => {
     const [frameColor, setFrameColor] = useState(initialState.frameColor)
     const [frameWidth, setFrameWidth] = useState(initialState.frameWidth)
     const [imgPlusWidth, setImgPlusWidth] = useState(initialState.imgPlusWidth)
+    const [paintings, setPaintings] = useState([])
+
+    const updatePaintings = () => {
+        fetch(URL_API)
+            .then(res => res.json())
+            .then(data => {
+                setPaintings(data)
+                localStorage.setItem('paintings', JSON.stringify(data.reverse()))
+            })
+            .catch(err => console.error(err))
+    }
 
     useEffect(() => {
         const localStoragePaintings = localStorage.getItem('paintings')
         if (localStoragePaintings) {
             setPaintings(JSON.parse(localStoragePaintings))
         } else {
-            fetch(URL_API)
-                .then(res => res.json())
-                .then(data => {
-                    setPaintings(data)
-                    localStorage.setItem('paintings', JSON.stringify(data))
-                })
-                .catch(err => console.error(err))
+            updatePaintings()
         }
     }, [])
 
-    const [paintings, setPaintings] = useState([])
 
     return (
         <StateContext.Provider
@@ -40,7 +44,8 @@ export const ContextProvider = ({ children }) => {
                 imgPlusWidth,
                 setImgPlusWidth,
                 paintings,
-                setPaintings
+                setPaintings,
+                updatePaintings
             }}
         >
             {children}

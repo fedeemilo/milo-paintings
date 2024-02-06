@@ -3,10 +3,15 @@ import { useStateContext } from '../../context/ContextProvider'
 import { PaintCarousel } from '../../components'
 import './home.css'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Home = () => {
-    const { frameColor, paintings } = useStateContext()
+    const { frameColor, paintings, updatePaintings } = useStateContext()
 
+    useEffect(() => {
+        updatePaintings()
+    }, [])
+    
     return (
         <>
             <Container>
