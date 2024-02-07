@@ -15,11 +15,11 @@ import DeleteModal from './DeleteModal'
 import EditModal from './EditModal'
 import { URL_API } from '../../constants/urls'
 import { useStateContext } from '../../context/ContextProvider'
-
 import { RxUpdate } from 'react-icons/rx'
+import NavBar from '../NavBar/NavBar'
 
 function PaintingsList() {
-    const { paintings, setPaintings, updatePaintings } = useStateContext()
+    const { paintings, setPaintings, updatePaintings, frameColor } = useStateContext()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [editModalOpen, setEditModalOpen] = useState(false)
     const [paintingToDelete, setPaintingToDelete] = useState(null)
@@ -104,8 +104,9 @@ function PaintingsList() {
     }, [paintingToEdit])
 
     return (
-        <div className="paintings-list-container">
-            <Container>
+        <div className="paintings-list-container d-flex flex-column align-items-center">
+            <NavBar frameColor={frameColor} />
+            <Container className='mt-5'>
                 <button
                     onClick={updatePaintings}
                     style={{ position: 'absolute', top: '10px', left: '10px' }}
