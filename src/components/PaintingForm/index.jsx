@@ -16,10 +16,10 @@ import { useStateContext } from '../../context/ContextProvider'
 
 import QRCode from 'qrcode.react'
 import { toPng } from 'html-to-image'
-
+import NavBar from '../NavBar/NavBar'
 
 const CreatePaintingForm = () => {
-    const { updatePaintings } = useStateContext()
+    const { updatePaintings, frameColor } = useStateContext()
     const [title, setTitle] = useState('')
     const [savedTitle, setSavedTitle] = useState('')
     const [paintingType, setPaintingType] = useState('')
@@ -146,101 +146,111 @@ const CreatePaintingForm = () => {
                 </Container>
             )}
             <Container
-                className={'d-flex justify-content-center align-items-center'}
-                style={{ minHeight: '100vh' }}
+                className="d-flex flex-column align-items-center justify-content-start mt-3"
+                style={{ minHeight: '100vh', paddingTop: '20px' }}
             >
-                <Row className="bg-light p-3 border rounded w-50">
-                    <h1
-                        className="display-4 text-center"
-                        style={{ fontSize: '1.9rem' }}
+                <NavBar frameColor={frameColor} />
+                <Container
+                    className={
+                        'd-flex justify-content-center align-items-center'
+                    }
+                    style={{ minHeight: '90vh' }}
+                >
+                    <Row
+                        className="bg-light p-3 border rounded w-50 "
+                        style={{ position: 'relative', bottom: '3.5rem' }}
                     >
-                        Cargar Pintura
-                    </h1>
-                    <Col md={12}>
-                        <Form onSubmit={handleSubmit}>
-                            <FormGroup>
-                                <Label for="title">Titulo</Label>
-                                <Input
-                                    type="text"
-                                    name="title"
-                                    id="title"
-                                    value={title}
-                                    onChange={handleTitleChange}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="paintingType">
-                                    Tipo de Pintura
-                                </Label>
-                                <Input
-                                    type="text"
-                                    name="paintingType"
-                                    id="paintingType"
-                                    value={paintingType}
-                                    onChange={handlePaintingTypeChange}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="price">Precio</Label>
-                                <Input
-                                    type="text"
-                                    name="price"
-                                    id="price"
-                                    value={price}
-                                    onChange={handlePriceChange}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="painting">Imagen Pintura</Label>
-                                <Input
-                                    innerRef={fileInput}
-                                    type="file"
-                                    name="painting"
-                                    id="painting"
-                                    onChange={handlePaintingChange}
-                                />
-                            </FormGroup>
-
-                            <div className={'d-flex'}>
-                                <Button color="primary" className="w-100">
-                                    Cargar
-                                </Button>
-                                {isLoading && (
-                                    <Spinner
-                                        color="primary"
-                                        style={{
-                                            width: '2rem',
-                                            height: '2rem',
-                                            marginLeft: '.5rem'
-                                        }}
-                                        type="grow"
-                                    />
-                                )}
-                            </div>
-                        </Form>
-                    </Col>
-                </Row>
-                {qrValue && (
-                    <div
-                        style={{
-                            position: 'absolute',
-                            left: '70%',
-                            transform: 'translateX(50%)',
-                            top: '40%',
-                            transform: 'translateY(-50%)'
-                        }}
-                    >
-                        <div ref={qrRef}>
-                            <QRCode value={qrValue} size={256} />
-                        </div>
-                        <Button
-                            onClick={downloadQR}
-                            className="btn btn-outline-primary mt-2"
+                        <h1
+                            className="display-4 text-center"
+                            style={{ fontSize: '1.9rem' }}
                         >
-                            Descargar QR
-                        </Button>
-                    </div>
-                )}
+                            Cargar Pintura
+                        </h1>
+                        <Col md={12}>
+                            <Form onSubmit={handleSubmit}>
+                                <FormGroup>
+                                    <Label for="title">Titulo</Label>
+                                    <Input
+                                        type="text"
+                                        name="title"
+                                        id="title"
+                                        value={title}
+                                        onChange={handleTitleChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="paintingType">
+                                        Tipo de Pintura
+                                    </Label>
+                                    <Input
+                                        type="text"
+                                        name="paintingType"
+                                        id="paintingType"
+                                        value={paintingType}
+                                        onChange={handlePaintingTypeChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="price">Precio</Label>
+                                    <Input
+                                        type="text"
+                                        name="price"
+                                        id="price"
+                                        value={price}
+                                        onChange={handlePriceChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="painting">Imagen Pintura</Label>
+                                    <Input
+                                        innerRef={fileInput}
+                                        type="file"
+                                        name="painting"
+                                        id="painting"
+                                        onChange={handlePaintingChange}
+                                    />
+                                </FormGroup>
+                                <div className={'d-flex'}>
+                                    <Button color="primary" className="w-100">
+                                        Cargar
+                                    </Button>
+                                    {isLoading && (
+                                        <Spinner
+                                            color="primary"
+                                            style={{
+                                                width: '2rem',
+                                                height: '2rem',
+                                                marginLeft: '.5rem'
+                                            }}
+                                            type="grow"
+                                        />
+                                    )}
+                                </div>
+                            </Form>
+                        </Col>
+                    </Row>
+                    {qrValue && (
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: '70%',
+                                transform: 'translateX(50%)',
+                                top: '40%',
+                                transform: 'translateY(-50%)'
+                            }}
+                        >
+                            <div ref={qrRef}>
+                                <QRCode value={qrValue} size={256} />
+                            </div>
+                            <Button
+                                onClick={downloadQR}
+                                className="btn btn-outline-primary mt-2"
+                            >
+                                Descargar QR
+                            </Button>
+                        </div>
+                    )}
+                </Container>
             </Container>
         </>
     )

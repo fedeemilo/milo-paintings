@@ -24,7 +24,7 @@ const Painting = () => {
 
     return (
         <div className="d-flex flex-column justify-center align-items-center">
-            <div className="mt-5">
+            <div className="mt-4 mb-4">
                 <NavBar frameColor={frameColor} />
             </div>
             <Container
