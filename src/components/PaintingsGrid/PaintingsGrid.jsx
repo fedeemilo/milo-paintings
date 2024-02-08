@@ -7,7 +7,8 @@ import {
     CardImg,
     CardTitle,
     CardSubtitle,
-    CardBody
+    CardBody,
+    Button
 } from 'reactstrap'
 import './paintings-grid.css'
 import { FaEdit, FaTrash } from 'react-icons/fa'
@@ -17,6 +18,7 @@ import { URL_API } from '../../constants/urls'
 import { useStateContext } from '../../context/ContextProvider'
 import { RxUpdate } from 'react-icons/rx'
 import NavBar from '../NavBar/NavBar'
+import { useNavigate } from 'react-router-dom'
 
 function PaintingsList() {
     const { paintings, setPaintings, updatePaintings, frameColor } = useStateContext()
@@ -30,6 +32,12 @@ function PaintingsList() {
         price: '',
         src: ''
     })
+
+    const navigate = useNavigate()
+
+    const goToPaintingForm = () => {
+        navigate('/painting-form')
+    }
 
     const handleDelete = paintingId => {
         setPaintingToDelete(paintingId)
@@ -106,10 +114,17 @@ function PaintingsList() {
     return (
         <div className="paintings-list-container d-flex flex-column align-items-center">
             <NavBar frameColor={frameColor} />
-            <Container className='mt-5'>
+            <Container className="mt-5">
+                <Button
+                    outline
+                    onClick={goToPaintingForm}
+                    style={{ position: 'absolute', top: '10px', left: '10px' }}
+                >
+                    Cargar Pintura
+                </Button>
                 <button
                     onClick={updatePaintings}
-                    style={{ position: 'absolute', top: '10px', left: '10px' }}
+                    style={{ position: 'absolute', top: '10px', right: '10px' }}
                 >
                     <div className="d-flex align-items-center fw-bold">
                         <RxUpdate />

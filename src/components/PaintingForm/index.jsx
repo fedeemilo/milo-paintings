@@ -17,6 +17,7 @@ import { useStateContext } from '../../context/ContextProvider'
 import QRCode from 'qrcode.react'
 import { toPng } from 'html-to-image'
 import NavBar from '../NavBar/NavBar'
+import { useNavigate } from 'react-router-dom'
 
 const CreatePaintingForm = () => {
     const { updatePaintings, frameColor } = useStateContext()
@@ -34,6 +35,12 @@ const CreatePaintingForm = () => {
 
     const fileInput = useRef(null)
     const qrRef = useRef(null)
+
+    const navigate = useNavigate()
+
+    const goToPaintingsList = () => {
+        navigate('/paintings-list')
+    }
 
     const downloadQR = () => {
         if (qrRef.current) {
@@ -149,6 +156,13 @@ const CreatePaintingForm = () => {
                 className="d-flex flex-column align-items-center justify-content-start mt-3"
                 style={{ minHeight: '100vh', paddingTop: '20px' }}
             >
+                <Button
+                    outline
+                    onClick={goToPaintingsList}
+                    style={{ position: 'absolute', top: '10px', left: '10px' }}
+                >
+                    Editar/Borrar Pinturas
+                </Button>
                 <NavBar frameColor={frameColor} />
                 <Container
                     className={
@@ -211,7 +225,7 @@ const CreatePaintingForm = () => {
                                     />
                                 </FormGroup>
                                 <div className={'d-flex'}>
-                                    <Button color="primary" className="w-100">
+                                    <Button color="secondary" className="w-100">
                                         Cargar
                                     </Button>
                                     {isLoading && (
